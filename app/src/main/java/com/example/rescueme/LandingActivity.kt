@@ -55,9 +55,8 @@ class LandingActivity : Activity() {
 
         val button_logout = findViewById<ImageButton>(R.id.button_logout)
         button_logout.setOnClickListener {
-            Log.e("This is CSIT284","Logout button is clicked!")
-            Toast.makeText(this,"The logout button is clicked!", Toast.LENGTH_LONG).show()
-
+//            Log.e("This is CSIT284","Logout button is clicked!")
+//            Toast.makeText(this,"The logout button is clicked!", Toast.LENGTH_LONG).show()
 //            val builder = AlertDialog.Builder(this@LandingActivity)
 //            builder.setMessage("Are you sure you want to Logout?")
 //                .setCancelable(false)

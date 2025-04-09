@@ -3,100 +3,92 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:backgroundTint="#FEFEFE"
     android:orientation="vertical"
-    android:padding="40dp">
+    android:padding="32dp">
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="114dp"
-        android:src="@drawable/logo1" />
+        android:layout_height="100dp" android:layout_gravity="center_horizontal"
+        android:src="@drawable/logo1"
+        android:layout_marginBottom="16dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="12dp"
+        android:layout_gravity="center_horizontal"
         android:text="@string/app_name"
-        android:textSize="52sp"
-        android:textStyle="bold" />
+        android:textSize="36sp" android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="4dp"
         android:text="Emergency App"
-        android:textStyle="italic" />
+        android:textSize="14sp" android:textStyle="italic"
+        android:layout_marginBottom="32dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="16dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:text="Username: "
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/et_loginuser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Username"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="16sp" /> <EditText
+        android:id="@+id/et_loginuser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:hint="Enter Username"
+        android:inputType="text"
+        android:textSize="16sp" /> </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="24dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
             android:text="Password: "
-            android:textSize="20sp" />
-
-        <EditText
-            android:id="@+id/et_loginpassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Password"
-            android:inputType="textPassword"
-            android:textSize="20sp" />
-    </LinearLayout>
+            android:textSize="16sp" /> <EditText
+        android:id="@+id/et_loginpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        android:textSize="16sp" /> </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/button_login"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:text="Login"
-            android:textSize="16sp" />
+            android:text="@string/log_in"
+            android:background="@color/cardview_dark_background" android:textColor="@color/white" android:textSize="16sp" android:layout_marginEnd="8dp"
+            />
 
         <Button
             android:id="@+id/button_register"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_marginVertical="10dp"
             android:layout_weight="1"
-            android:text="Sign Up"
-            android:textSize="16sp" />
+            android:text="@string/sign_up"
+            android:background="@color/cardview_dark_background" android:textColor="@color/white" android:textSize="16sp" android:layout_marginStart="8dp"/>
 
     </LinearLayout>
-
-
 </LinearLayout>

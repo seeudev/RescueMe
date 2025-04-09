@@ -11,6 +11,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.rescueme.app.RescueMe
 import com.example.rescueme.utils.toast
 import com.example.rescueme.utils.isValidEntry
 import com.example.rescueme.utils.txt
@@ -28,14 +29,19 @@ class LoginActivity : Activity() {
         val button_login = findViewById<Button>(R.id.button_login)
 //        val username=""
 //        val password=""
-        intent?.let{
-            it.getStringExtra("username")?.let { username->
-                et_username.setText(username)
-            }
-            it.getStringExtra("password")?.let { password ->
-                et_password.setText(password)
-            }
-        }
+
+        //Intent pass
+//        intent?.let{
+//            it.getStringExtra("username")?.let { username->
+//                et_username.setText(username)
+//            }
+//            it.getStringExtra("password")?.let { password ->
+//                et_password.setText(password)
+//            }
+//        }
+        et_username.setText(((application as RescueMe).getUsername()))
+        et_password.setText((application as RescueMe).getPassword())
+
         val button_register = findViewById<Button>(R.id.button_register)
         button_register.setOnClickListener {
             Log.e("This is CSIT284","Register button is clicked!")
@@ -49,11 +55,18 @@ class LoginActivity : Activity() {
                 this.toast("Username and password is empty")
                 return@setOnClickListener
             }else{
+                if(et_username.txt()==(application as RescueMe).getUsername()
+                            && et_password.txt()==(application as RescueMe).getPassword()){
                     startActivity(
                         Intent(this, LandingActivity::class.java).apply {
                             putExtra("username",et_username.txt())
                             putExtra("password",et_password.txt())
                         })
+                }else{
+                    this.toast("Invalid Username or Password")
+                    return@setOnClickListener
+                }
+
             }
 
 
