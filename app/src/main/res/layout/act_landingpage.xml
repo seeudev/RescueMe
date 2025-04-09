@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="#FEFEFE"
+    android:padding="5dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:background="@color/cardview_shadow_end_color"
+        android:weightSum="3">
+        <ImageButton
+            android:id="@+id/button_logout"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="clickNewLogout"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logout"
+            android:layout_weight=".25"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:fontFamily="sans-serif-black"
+            android:text="Home"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_weight="2.5"/>
+
+        <ImageButton
+            android:id="@+id/button_settings"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
+            android:clickable="true"
+            android:focusable="true"
+            android:onClick="clickNewSettings"
+            android:scaleType="fitCenter"
+            android:src="@drawable/settings"
+            android:layout_weight=".25"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/tv_welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:fontFamily="sans-serif-black"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:layout_marginBottom="8dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to RescueMe!"
+            android:fontFamily="sans-serif-black"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:layout_gravity="left"
+            android:layout_marginBottom="0dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your trusted emergency app."
+            android:fontFamily="sans-serif-condensed-light"
+            android:textStyle="italic"
+            android:layout_gravity="left"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="118dp"
+            android:background="@color/cardview_shadow_end_color"
+            android:orientation="horizontal"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <ImageView
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/emergency" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Emergency Assistance"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Click on the card for further information" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="118dp"
+            android:background="@color/cardview_shadow_end_color"
+            android:orientation="horizontal"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp">
+
+            <ImageView
+                android:layout_width="51dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/news" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Current News"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Click on the card for further information" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:weightSum="5"
+        android:background="@color/cardview_shadow_end_color">
+        <ImageButton
+            android:id="@+id/button_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            android:src="@drawable/home"
+            android:onClick="clickNewHome"
+            android:clickable="true"
+            android:focusable="true"
+            />
+        <ImageButton
+            android:id="@+id/button_group"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            android:src="@drawable/group"
+            android:onClick="clickNewGroup"
+            android:clickable="true"
+            android:focusable="true"
+            />
+        <ImageButton
+            android:id="@+id/button_calendar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            android:src="@drawable/calendar"
+            android:onClick="clickNewCalendar"
+            android:clickable="true"
+            android:focusable="true"
+            />
+        <ImageButton
+            android:id="@+id/button_notification"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            android:src="@drawable/notification"
+            android:onClick="clickNewNotification"
+            android:clickable="true"
+            android:focusable="true"
+            />
+        <ImageButton
+            android:id="@+id/button_profile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitCenter"
+            android:layout_weight="1"
+            android:src="@drawable/profile"
+            android:onClick="clickNewProfile"
+            android:clickable="true"
+            android:focusable="true"
+            />
+    </LinearLayout>
+</LinearLayout>
