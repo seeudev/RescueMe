@@ -23,7 +23,7 @@ class SettingsActivity : Activity() {
         val arrayAdapter = ArrayAdapter(this,android.R.layout.simple_list_item_1,settingList)
         listView.adapter=arrayAdapter
 
-
+        //Back
         val buttonBack = findViewById<ImageButton>(R.id.back_button)
         buttonBack.setOnClickListener {
             Log.e("This is CSIT284","Back button is clicked!")
@@ -31,13 +31,5 @@ class SettingsActivity : Activity() {
             val intent = Intent(this,LandingActivity::class.java)
             startActivity(intent)
         }
-
-//        val button_developers = findViewById<ImageButton>(R.id.developers_button)
-//        button_developers.setOnClickListener {
-//            Log.e("This is CSIT284","Dev button is clicked!")
-//            Toast.makeText(this,"The Dev button is clicked!", Toast.LENGTH_LONG).show()
-//            val intent = Intent(this,DevPageActivity::class.java)
-//            startActivity(intent)
-//        }
     }
 }

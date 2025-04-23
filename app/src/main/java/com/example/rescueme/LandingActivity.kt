@@ -1,78 +1,85 @@
 package com.example.rescueme
 
-
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.TextClock
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.appcompat.app.AlertDialog;
+import com.example.rescueme.app.RescueMe
 
-class LandingActivity : Activity() {
+class LandingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.act_landingpage)
 
-        val textview_welcome_message = findViewById<TextView>(R.id.tv_welcome)
+        // Set greeting text with the user's name
+        val greetingTextView = findViewById<TextView>(R.id.tv_greeting)
+        val app = application as RescueMe
+        val userName = app.getName().ifEmpty { "User" } // Fallback to "User" if name is empty
+        greetingTextView.text = "Hello $userName"
 
-        intent?.let {
-            it.getStringExtra("username")?.let { username->
-                textview_welcome_message.setText("Hello $username!")
-            }
+        // Settings button click listener
+        val settingsButton = findViewById<ImageButton>(R.id.button_settings)
+        settingsButton.setOnClickListener {
+            Toast.makeText(this, "Settings button clicked!", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, SettingsActivity::class.java))
         }
 
-        val button_settings = findViewById<ImageButton>(R.id.button_settings)
-        button_settings.setOnClickListener {
-            Log.e("This is CSIT284","Settings button is clicked!")
-            Toast.makeText(this,"The Setting button is clicked!", Toast.LENGTH_LONG).show()
-            val intent = Intent(this,SettingsActivity::class.java)
-            startActivity(intent)
+        // SOS button click listener
+        val sosButton = findViewById<Button>(R.id.button_sos)
+        sosButton.setOnClickListener {
+            Toast.makeText(this, "SOS button clicked!", Toast.LENGTH_SHORT).show()
+            // Implement SOS functionality here
         }
 
-        val button_home = findViewById<ImageButton>(R.id.button_home)
-        button_home.setOnClickListener {
-            Log.e("This is CSIT284","Home button is clicked!")
-            Toast.makeText(this,"The home button is clicked!", Toast.LENGTH_LONG).show()
-            val intent = Intent(this,LandingActivity::class.java)
-            startActivity(intent)
+        // Quick Assistance buttons
+        findViewById<Button>(R.id.card_injury).setOnClickListener {
+            Toast.makeText(this, "Navigating to Injury Assistance", Toast.LENGTH_SHORT).show()
+            // Navigate to Injury Assistance screen (to be implemented)
         }
 
-        val button_profile = findViewById<ImageButton>(R.id.button_profile)
-        button_profile.setOnClickListener {
-            Log.e("This is CSIT284","Settings button is clicked!")
-            Toast.makeText(this,"The Setting button is clicked!", Toast.LENGTH_LONG).show()
-            val intent = Intent(this,ProfilePageActivity::class.java)
-            startActivity(intent)
+        findViewById<Button>(R.id.card_accident).setOnClickListener {
+            Toast.makeText(this, "Navigating to Accident Assistance", Toast.LENGTH_SHORT).show()
+            // Navigate to Accident Assistance screen (to be implemented)
         }
 
-        val button_logout = findViewById<ImageButton>(R.id.button_logout)
-        button_logout.setOnClickListener {
-//            Log.e("This is CSIT284","Logout button is clicked!")
-//            Toast.makeText(this,"The logout button is clicked!", Toast.LENGTH_LONG).show()
-//            val builder = AlertDialog.Builder(this@LandingActivity)
-//            builder.setMessage("Are you sure you want to Logout?")
-//                .setCancelable(false)
-//                .setPositiveButton("Yes") { dialog, id ->
-//                    val intent = Intent(this,LoginActivity::class.java)
-//                    startActivity(intent)
-//                }
-//                .setNegativeButton("No") { dialog, id ->
-//                    // Dismiss the dialog
-//                    dialog.dismiss()
-//                }
-//            val alert = builder.create()
-//            alert.show()
-            val intent = Intent(this,LoginActivity::class.java)
-            startActivity(intent)
+        findViewById<Button>(R.id.card_general_help).setOnClickListener {
+            Toast.makeText(this, "Navigating to General Help", Toast.LENGTH_SHORT).show()
+            // Navigate to General Help screen (to be implemented)
         }
 
+        // Notifications card click listener
+        findViewById<Button>(R.id.card_notifications).setOnClickListener {
+            Toast.makeText(this, "Navigating to Notifications", Toast.LENGTH_SHORT).show()
+            // Navigate to Notifications screen (to be implemented)
+        }
+
+        // Bottom navigation bar buttons
+        findViewById<ImageButton>(R.id.nav_home).setOnClickListener {
+            Toast.makeText(this, "Home selected", Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<ImageButton>(R.id.nav_contacts).setOnClickListener {
+            Toast.makeText(this, "Contacts selected", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, EmergencyContactActivity::class.java))
+        }
+
+        findViewById<ImageButton>(R.id.nav_emergency).setOnClickListener {
+            Toast.makeText(this, "Emergency selected", Toast.LENGTH_SHORT).show()
+            // Navigate to Emergency screen (to be implemented)
+        }
+
+        findViewById<ImageButton>(R.id.nav_notifications).setOnClickListener {
+            Toast.makeText(this, "Notifications selected", Toast.LENGTH_SHORT).show()
+            // Navigate to Notifications screen (to be implemented)
+        }
+
+        findViewById<ImageButton>(R.id.nav_profile).setOnClickListener {
+            Toast.makeText(this, "Profile selected", Toast.LENGTH_SHORT).show()
+            startActivity(Intent(this, ProfilePageActivity::class.java))
+        }
     }
 }

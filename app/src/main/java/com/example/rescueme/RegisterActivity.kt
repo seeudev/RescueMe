@@ -3,16 +3,9 @@ package com.example.rescueme
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.rescueme.app.RescueMe
-import com.example.rescueme.utils.isValidEntry
 import com.example.rescueme.utils.toast
 import com.example.rescueme.utils.txt
 
@@ -24,40 +17,40 @@ class RegisterActivity : Activity() {
         val username = findViewById<EditText>(R.id.et_username)
         val password = findViewById<EditText>(R.id.et_password)
         val fullname = findViewById<EditText>(R.id.et_fullname)
+        val confirmPassword = findViewById<EditText>(R.id.et_confirmpassword)
 
+        val buttonSignup = findViewById<Button>(R.id.button_signup)
+        buttonSignup.setOnClickListener {
+            val usernameText = username.txt()
+            val passwordText = password.txt()
+            val fullnameText = fullname.txt()
+            val confirmPasswordText = confirmPassword.txt()
 
-
-        //Signup
-        val button_signup = findViewById<Button>(R.id.button_signup)
-        button_signup.setOnClickListener {
-//            Log.e("This is CSIT284","Signup button is clicked!")
-//            Toast.makeText(this,"The signup button is clicked!", Toast.LENGTH_LONG).show()
-            if(username.isValidEntry()
-                || password.isValidEntry()
-                || fullname.isValidEntry()){
-                Toast.makeText(this,"Fill out fields completely.",Toast.LENGTH_LONG).show()
+            // Check if all fields are filled
+            if (usernameText.isEmpty() || passwordText.isEmpty() || fullnameText.isEmpty() || confirmPasswordText.isEmpty()) {
+                this.toast("Please fill out all fields.")
                 return@setOnClickListener
-            }else{
-                (application as RescueMe).setUsername(username.text.toString())
-                (application as RescueMe).setPassword(password.text.toString())
-                (application as RescueMe).setName(fullname.text.toString())
-                startActivity(
-                    Intent(this, LoginActivity::class.java).apply{
-                        putExtra("username",username.text.toString())
-                        putExtra("password", password.text.toString())
-                    }
-                )
             }
 
+            // Check if passwords match
+            if (passwordText != confirmPasswordText) {
+                this.toast("Passwords do not match.")
+                return@setOnClickListener
+            }
+
+            // Store data in the application class
+            (application as RescueMe).setUsername(usernameText)
+            (application as RescueMe).setPassword(passwordText)
+            (application as RescueMe).setName(fullnameText)
+
+
+            // Navigate to LoginActivity
+            startActivity(Intent(this, LoginActivity::class.java))
         }
 
-        //Cancel
-        val button_cancel = findViewById<Button>(R.id.button_cancel)
-        button_cancel.setOnClickListener {
-            Log.e("This is CSIT284","Cancel button is clicked!")
-            Toast.makeText(this,"The cancel button is clicked!", Toast.LENGTH_LONG).show()
-            val intent = Intent(this,LoginActivity::class.java)
-            startActivity(intent)
+        val buttonCancel = findViewById<Button>(R.id.button_cancel)
+        buttonCancel.setOnClickListener {
+            startActivity(Intent(this, LoginActivity::class.java))
         }
     }
 }

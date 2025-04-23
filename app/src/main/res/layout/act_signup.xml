@@ -4,102 +4,101 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:padding="30dp">
+    android:padding="32dp">
 
+    <!-- Logo -->
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="114dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
         android:src="@drawable/logo1"
-        android:layout_gravity="center"/>
+        android:layout_marginBottom="16dp" />
+
+    <!-- Header -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign-Up"
-        android:textSize="24sp"
-        android:textStyle="italic"
-        android:layout_gravity="center"
-        android:layout_marginVertical="14dp"
-        android:fontFamily="sans-serif-medium"/>
+        android:text="Sign Up"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="24dp" />
 
-    <LinearLayout
+    <!-- Username Label -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="10dp">
+        android:text="Username"
+        style="@style/BodyText"
+        android:layout_marginBottom="4dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Username: "
-            android:textSize="12sp"
-            />
-        <EditText
-            android:id="@+id/et_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Username"
-            android:textSize="12sp"/>
-    </LinearLayout>
-    <LinearLayout
+    <!-- Username Field -->
+    <EditText
+        android:id="@+id/et_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="10dp">
+        android:hint="Enter Username"
+        android:inputType="text"
+        style="@style/BodyText"
+        android:backgroundTint="@color/primary_red"
+        android:layout_marginBottom="16dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Full Name:         "
-            android:textSize="12sp"
-            />
-        <EditText
-            android:id="@+id/et_fullname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Full Name"
-            android:textSize="12sp"/>
-    </LinearLayout>
-    <LinearLayout
+    <!-- Full Name Label -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="10dp">
+        android:text="Full Name"
+        style="@style/BodyText"
+        android:layout_marginBottom="4dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Password: "
-            android:textSize="12sp"
-            />
-        <EditText
-            android:id="@+id/et_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Enter Password"
-            android:inputType="textPassword"
-            android:textSize="12sp"/>
-    </LinearLayout>
-    <LinearLayout
+    <!-- Full Name Field -->
+    <EditText
+        android:id="@+id/et_fullname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginVertical="10dp">
+        android:hint="Enter Full Name"
+        android:inputType="textPersonName"
+        style="@style/BodyText"
+        android:backgroundTint="@color/primary_red"
+        android:layout_marginBottom="16dp" />
 
-<!--        <TextView-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Confirm Password: "-->
-<!--            android:textSize="16sp"-->
-<!--            />-->
-<!--        <EditText-->
-<!--            android:id="@+id/et_confirmpass"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint="Confirm Password"-->
-<!--            android:inputType="textPassword"-->
-<!--            android:textSize="16sp"/>-->
-    </LinearLayout>
+    <!-- Password Label -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Password"
+        style="@style/BodyText"
+        android:layout_marginBottom="4dp" />
 
+    <!-- Password Field -->
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter Password"
+        android:inputType="textPassword"
+        style="@style/BodyText"
+        android:backgroundTint="@color/primary_red"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Confirm Password Label -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Confirm Password"
+        style="@style/BodyText"
+        android:layout_marginBottom="4dp" />
+
+    <!-- Confirm Password Field -->
+    <EditText
+        android:id="@+id/et_confirmpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Confirm Password"
+        android:inputType="textPassword"
+        style="@style/BodyText"
+        android:backgroundTint="@color/primary_red"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,20 +108,20 @@
             android:id="@+id/button_signup"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:textSize="16sp"
             android:layout_weight="1"
-            android:layout_margin="5dp"/>
+            android:text="Sign Up"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/white"
+            android:layout_marginEnd="8dp" />
+
         <Button
             android:id="@+id/button_cancel"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Cancel"
-            android:textSize="16sp"
             android:layout_weight="1"
-            android:layout_margin="5dp"/>
+            android:text="Cancel"
+            android:background="@drawable/rounded_button"
+            android:textColor="@color/white"
+            android:layout_marginStart="8dp" />
     </LinearLayout>
-
-
-
 </LinearLayout>
