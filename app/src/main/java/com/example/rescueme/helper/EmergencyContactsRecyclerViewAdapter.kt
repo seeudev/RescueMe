@@ -11,7 +11,11 @@ import android.widget.TextView
 import com.example.rescueme.R
 import com.google.android.ads.mediationtestsuite.viewmodels.ItemViewHolder
 
-class EmergencyContactsRecyclerViewAdapter(private val listOfEmergencyContacts: List<EmergencyContact>): RecyclerView.Adapter<EmergencyContactsRecyclerViewAdapter.ItemViewHolder>(){
+class EmergencyContactsRecyclerViewAdapter(
+    private val listOfEmergencyContacts: List<EmergencyContact>,
+    private val onClick: (EmergencyContact)-> Unit,
+    private val onLongClick: (EmergencyContact)-> Unit
+): RecyclerView.Adapter<EmergencyContactsRecyclerViewAdapter.ItemViewHolder>(){
     class ItemViewHolder(view: View):RecyclerView.ViewHolder(view) {
         val photo = view.findViewById<ImageView>(R.id.imageview_item_pic)
         val emergencyContactName = view.findViewById<TextView>(R.id.textview_emergencycontactname)
@@ -34,6 +38,13 @@ class EmergencyContactsRecyclerViewAdapter(private val listOfEmergencyContacts: 
         holder.emergencyContactName.setText(item.emergencycontactname)
         holder.emergencyContactNumber.setText(item.emergencycontactnumber)
 
+        holder.itemView.setOnClickListener {
+            onClick(item)
+        }
+        holder.itemView.setOnLongClickListener {
+            onLongClick(item)
+            true
+        }
     }
 
 }
